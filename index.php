@@ -1,50 +1,181 @@
-<!DOCTYPE php>
-<php lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Bites</title>
+    
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
   
 
     <style>
     
-/* navbar     */
-/* styles.css */
-
+/* 1. Base custom-navbar (Solid State - Applied after scroll) */
 .custom-navbar {
-  background-color: #198754 !important; /* Bootstrap green */
-  padding: 12px 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 999;
+    background-color: #198754 !important; /* Solid Green */
+    padding: 12px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    transition: background-color 0.4s ease; /* Important for smooth transition */
 }
 
-/* Sticky Top handled by Bootstrap with sticky-top class */
-
-/* Optional: Hover Effects */
-.navbar-nav .nav-link {
-  color: #ffffff !important;
-  margin-left: 15px;
-  transition: color 0.3s, background-color 0.3s;
-  border-radius: 5px;
-}
-
-.navbar-nav .nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-}
-
-/* Optional: Make the logo stand out */
-.navbar-brand {
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-
-
+/* 2. Initial Transparent State (Applied on page load) */
+.transparent-initial {
+    /* Use absolute positioning to place it over the hero section initially */
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
     
+    /* Transparent Background */
+    background-color: rgba(0, 0, 0, 0.45) !important; 
+    
+    /* Remove shadow on transparent state */
+    box-shadow: none !important;
+}
+
+/* 3. Link Colors */
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+    margin-left: 15px;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 5px;
+}
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* If you used the button style, keep it */
+.nav-link.btn-nav-primary {
+    background-color: #28a745;
+    color: white !important;
+    padding: 6px 15px;
+    border-radius: 5px;
+    margin-left: 20px !important;
+    transition: background-color 0.3s;
+}
+/* slider */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 90vh; /* reduce height to show full image nicely */
+  overflow: hidden;
+}
+
+.hero-slide {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* keeps proportions correct */
+  filter: brightness(80%); /* slightly darken for better text visibility */
+}
+
+.hero-slide.active-slide {
+  display: block;
+  opacity: 1;
+}
+
+/* Center Text Styling */
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.45);
+  padding: 30px 50px;
+  border-radius: 12px;
+  max-width: 70%;
+}
+
+.hero-text h1 {
+  font-size: 3rem;  /* Larger heading */
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #f1f1f1;
+}
+
+/* Navigation Buttons */
+.hero-prev,
+.hero-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 15px 22px;
+  cursor: pointer;
+  font-size: 28px;
+  border-radius: 50%;
+  z-index: 10;
+  transition: background-color 0.3s ease;
+}
+
+.hero-prev:hover,
+.hero-next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.hero-prev { left: 25px; }
+.hero-next { right: 25px; }
+
+/* Dots */
+.hero-dots {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.hero-dot {
+  height: 14px;
+  width: 14px;
+  background: #fff;
+  opacity: 0.5;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero-dot.active {
+  opacity: 1;
+  background: #4CAF50;
+}
+
+/* Heading above the slider */
+.hero-heading {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #2e7d32;
+  margin-top: 20px;
+}
+
+/* slider ends */
+
 /* Footer Styling */
 .footer {
     background: #2c3e50;
@@ -101,7 +232,7 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top transparent-initial">
   <div class="container">
     <a class="navbar-brand fw-bold text-uppercase" href="index.php">
       <i class="bi bi-egg-fried me-2"></i>Green Bites
@@ -125,42 +256,60 @@
         <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
         <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
         <li class="nav-item"><a class="nav-link" href="admin.php">Admin</a></li>
+        <li class="nav-item"><a class="nav-link btn-nav-primary" href="login.php">Login</a></li>
+        <li class="nav-item"><a class="nav-link btn-nav-primary" href="register.php">Register</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-    <div class="container mt-4">
+    <!-- <div class="container mt-4">
         <h1 class="text-success">Welcome to Green Bites</h1>
         <p>Healthy Eating, Made Simple!</p>
-    </div>
-
-
-    <div class="hero-section">
-    <div class="hero-slider">
-        <div class="hero-slide active-slide" style="background-image: url('images/salad.jpg');"></div>
-        <div class="hero-slide" style="background-image: url('images/itlpasta.jpg');"></div>
-        <div class="hero-slide" style="background-image: url('images/avocado.jpg');"></div>
-    </div>
-
-    <div class="hero-content">
-        <h1>Fresh & Healthy Meals</h1>
-        <p>Experience the best organic dishes made with love.</p>
-        <a href="menu.php" class="btn btn-primary">View Menu</a>
-    </div>
-
-    <div class="slider-controls">
-        <span class="hero-prev">&#10094;</span>
-        <span class="hero-next">&#10095;</span>
-    </div>
-
-    <div class="hero-dots">
-        <span class="hero-dot active" data-index="0"></span>
-        <span class="hero-dot" data-index="1"></span>
-        <span class="hero-dot" data-index="2"></span>
-    </div>
+    </div> -->
+    
+<div class="hero-text">
+  <h2>Fresh Ingredients</h2>
+  <p>Prepared with Love and Care</p>
 </div>
 
+
+<section class="hero">
+  <div class="hero-slide active-slide">
+    <img src="images/hero-bg.jpg" alt="Slide 1">
+    <div class="hero-text">
+      <h1>Welcome to Green Bites</h1>
+      <p>Delicious Food, Fresh Taste</p>
+    </div>
+  </div>
+
+  <div class="hero-slide">
+    <img src="images/freshing.jpg" alt="Slide 2">
+    <div class="hero-text">
+      <h1>Fresh Ingredients</h1>
+      <p>Prepared with Love and Care</p>
+    </div>
+  </div>
+
+  <div class="hero-slide">
+    <img src="images/ordonl.jpg" alt="Slide 3">
+    <div class="hero-text">
+      <h1>Fast Delivery</h1>
+      <p>Order Online Now!</p>
+    </div>
+  </div>
+
+  <!-- Navigation buttons -->
+  <button class="hero-prev">&#10094;</button>
+  <button class="hero-next">&#10095;</button>
+
+  <!-- Dots -->
+  <div class="hero-dots">
+    <span class="hero-dot active"></span>
+    <span class="hero-dot"></span>
+    <span class="hero-dot"></span>
+  </div>
+</section>
 
   
  <!-- Main Content -->
@@ -431,6 +580,81 @@
 </footer>
 
 
+<!-- working slider js -->
+
+    <script>
+let slideIndex = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const dots = document.querySelectorAll('.hero-dot');
+const nextBtn = document.querySelector('.hero-next');
+const prevBtn = document.querySelector('.hero-prev');
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active-slide', i === index);
+    dots[i].classList.toggle('active', i === index);
+  });
+  slideIndex = index;
+}
+
+function nextSlide() {
+  slideIndex = (slideIndex + 1) % slides.length;
+  showSlide(slideIndex);
+}
+
+function prevSlide() {
+  slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+  showSlide(slideIndex);
+}
+
+// Auto slide every 4 seconds
+let autoSlide = setInterval(nextSlide, 4000);
+
+// Button events
+nextBtn.addEventListener('click', () => {
+  nextSlide();
+  resetAutoSlide();
+});
+
+prevBtn.addEventListener('click', () => {
+  prevSlide();
+  resetAutoSlide();
+});
+
+dots.forEach((dot, i) => {
+  dot.addEventListener('click', () => {
+    showSlide(i);
+    resetAutoSlide();
+  });
+});
+
+function resetAutoSlide() {
+  clearInterval(autoSlide);
+  autoSlide = setInterval(nextSlide, 4000);
+}
+</script>
+
+<script>
+  // JavaScript for Sticky Navbar Class Toggling
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.custom-navbar');
+    
+    // Get the height of the hero section (which is 100vh)
+    const heroHeight = window.innerHeight; 
+
+    // If the scroll position is greater than the hero section height (e.g., 80% of it)
+    if (window.scrollY > heroHeight * 0.8) { 
+        // Remove the transparent class, allowing the solid custom-navbar styles to take effect
+        navbar.classList.remove('transparent-initial');
+    } else {
+        // Add the transparent class back when near the top
+        navbar.classList.add('transparent-initial');
+    }
+});
+</script>
+
+
+    <script src="js/script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </php>

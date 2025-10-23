@@ -97,192 +97,369 @@
      <!-- Featured Dishes Slider -->
      <section class="featured-slider">
         <h2>Featured Dishes</h2>
-        <div class="slider-container">
-            <button class="prev">&#10094;</button>
-            <div class="slider">
-                <div class="slide"><img src="images/salad.jpg" alt="Dish 1">hello</div>
-                <div class="slide"><img src="images/lentil.jpg" alt="Dish 2"></div>
-                <div class="slide"><img src="images/dish3.jpg" alt="Dish 3"></div>
-                <div class="slide"><img src="images/dish4.jpg" alt="Dish 4"></div>
-            </div>
-            <button class="next">&#10095;</button>
+ <section class="menu">
+    
+    <div class="menu-controls container"> 
+        <div class="menu-search">
+            <input type="text" id="menuSearch" placeholder="Search Your Favourite Dish...">
+            <i class="fas fa-search"></i>
         </div>
-    </section>
 
-    <!-- Menu Grid -->
-    <section class="menu">
-        <h2>Our Menu</h2>
-        <div class="menu-container">
-    <div class="menu-item">
-        <img src="images/itlpasta.jpg" alt="Paneer Butter Masala">
-        <h3>Paneer Butter Masala</h3>
-        <p>Rich and creamy tomato-based gravy with soft paneer cubes, a North Indian delight.</p>
-        <span class="price">₹220</span>
-        <a href="order.php?dish=Paneer Butter Masala" class="btn btn-success order-btn">Order Now</a>
-    </div>
-
-    <div class="menu-item">
-        <img src="images/quinoa.jpg" alt="Dal Makhani">
-        <h3>Dal Makhani</h3>
-        <p>Slow-cooked black lentils with butter and cream, offering a smooth, flavorful experience.</p>
-        <span class="price">₹180</span>
-        <a href="order.php?dish=Dal Makhani" class="btn btn-success order-btn">Order Now</a>
-    </div>
-
-    <div class="menu-item">
-        <img src="images/dish3.jpg" alt="Vegetable Biryani">
-        <h3>Vegetable Biryani</h3>
-        <p>Aromatic basmati rice cooked with mixed vegetables and fragrant spices.</p>
-        <span class="price">₹160</span>
-        <a href="order.php?dish=Vegetable Biryani" class="btn btn-success order-btn">Order Now</a>
-    </div>
-
-    <div class="menu-item">
-        <img src="images/dish4.jpg" alt="Saag Paneer">
-        <h3>Saag Paneer</h3>
-        <p>Spinach cooked with paneer cubes and mild spices, a healthy and tasty option.</p>
-        <span class="price">₹200</span>
-        <a href="order.php?dish=Saag Paneer" class="btn btn-success order-btn">Order Now</a>
-    </div>
-
-    <!-- Add 11 more dishes similarly -->
+        <div class="menu-filter">
+        <select id="menuFilter" class="form-select">
+        <option value="all">All Categories</option>
+        <option value="main-course">Main Course (North Indian)</option>
+        <option value="chinese">Indo-Chinese</option>
+        <option value="rice-noodle">Rice & Noodles</option>
+        <option value="starter">Starters & Snacks</option>
+        <option value="indian-bread">Indian Breads</option>
+        <option value="beverage">Beverages (Drinks)</option>
+    </select>
 </div>
-
-<div class="menu-container">
-    <div class="menu-item">
-        <img src="images/itlpasta.jpg" alt="Vegetable Spring Rolls">
-        <h3>Vegetable Spring Rolls</h3>
-        <p>Crispy rolls filled with shredded vegetables, served with dipping sauce.</p>
-        <span class="price">₹140</span>
-        <a href="order.php?dish=Vegetable Spring Rolls" class="btn btn-success order-btn">Order Now</a>
     </div>
 
-    <div class="menu-item">
-        <img src="images/quinoa.jpg" alt="Samosa (2 pcs)">
-        <h3>Samosa (2 pcs)</h3>
-        <p>Crispy pastry filled with spiced potatoes and peas, a classic Indian snack.</p>
-        <span class="price">₹60</span>
-        <a href="order.php?dish=Samosa (2 pcs)" class="btn btn-success order-btn">Order Now</a>
-    </div>
+    <h2 class="section-heading-underline">Our Delicious Menu</h2>
+    
+    <div class="menu-container"> 
+        
+        <div class="menu-item" data-category="main-course">
+            <img src="images/pbm.png" alt="Paneer Butter Masala">
+            <h3>Paneer Butter Masala</h3>
+            <p>Rich and creamy tomato-based gravy with soft paneer cubes, gently spiced. A classic North Indian indulgence, perfect with Naan.</p>
+            <span class="price">₹220</span>
+            <a href="order.php?dish=Paneer Butter Masala" class="btn btn-success order-btn">Order Now</a>
+        </div>
 
-    <div class="menu-item">
-        <img src="images/dish3.jpg" alt="Veggie Burger">
-        <h3>Veggie Burger</h3>
-        <p>A delicious vegetarian patty served in a bun with fresh toppings.</p>
-        <span class="price">₹120</span>
-        <a href="order.php?dish=Veggie Burger" class="btn btn-success order-btn">Order Now</a>
-    </div>
+        <div class="menu-item" data-category="main-course">
+            <img src="images/dlm.png" alt="Dal Makhani">
+            <h3>Dal Makhani</h3>
+            <p>Black lentils slow-cooked overnight with butter and cream. Offers a smoky, velvety texture and deep, rich flavour.</p>
+            <span class="price">₹180</span>
+            <a href="order.php?dish=Dal Makhani" class="btn btn-success order-btn">Order Now</a>
+        </div>
 
-    <div class="menu-item">
-        <img src="images/dish4.jpg" alt="Dal Tadka">
-        <h3>Dal Tadka</h3>
-        <p>Lentils cooked and tempered with aromatic spices and ghee.</p>
-        <span class="price">₹160</span>
-        <a href="order.php?dish=Dal Tadka" class="btn btn-success order-btn">Order Now</a>
-    </div>
-</div>
+        <div class="menu-item" data-category="main-course">
+            <img src="images/shpan.png" alt="Vegetable Biryani">
+            <h3>Shahi Paneer</h3>
+            <p>Paneer cubes cooked in a royal, rich gravy made from cashew paste, cream, and subtle sweet spices. Truly a dish fit for a king.</p>
+            <span class="price">₹160</span>
+            <a href="order.php?dish=Vegetable Biryani" class="btn btn-success order-btn">Order Now</a>
+        </div>
 
-<div class="menu-container">
-    <div class="menu-item">
-        <img src="images/itlpasta.jpg" alt="Mattar Paneer">
-        <h3>Mattar Paneer</h3>
-        <p>Green peas and paneer cooked in a tomato-based gravy with mild spices.</p>
-        <span class="price">₹210</span>
-        <a href="order.php?dish=Mattar Paneer" class="btn btn-success order-btn">Order Now</a>
-    </div>
+        <div class="menu-item" data-category="main-course">
+            <img src="images/mk.jpg" alt="Samosa (2 pcs)">
+            <h3>Malai Kofta</h3>
+            <p>Soft, melt-in-your-mouth vegetable and paneer dumplings simmered in a creamy, mild, and slightly sweet gravy.</p>
+            <span class="price">₹60</span>
+            <a href="order.php?dish=Samosa (2 pcs)" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="main-course">
+            <img src="images/dak.jpg" alt="Saag Paneer">
+            <h3>Dum Aloo Kashmiri</h3>
+            <p>Baby potatoes stuffed with dry fruits and paneer, slow-cooked in a spicy yogurt-based gravy with a fragrant saffron aroma.</p>
+            <span class="price">₹200</span>
+            <a href="order.php?dish=Saag Paneer" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="main-course">
+            <img src="images/rajm.jpg" alt="Mushroom Chilli Dry">
+            <h3>Rajma Masala</h3>
+            <p>Classic Punjabi dish of red kidney beans cooked in a thick, spicy gravy with onions, tomatoes, and aromatic spices. Served best with rice.</p>
+            <span class="price">₹200</span>
+            <a href="order.php?dish=Mushroom Chilli Dry" class="btn btn-success order-btn">Order Now</a>
+        </div>
 
-    <div class="menu-item">
-        <img src="images/quinoa.jpg" alt="Mushroom Chilli Dry">
-        <h3>Mushroom Chilli Dry</h3>
-        <p>Crispy fried mushrooms tossed in a spicy and tangy Indo-Chinese sauce.</p>
-        <span class="price">₹200</span>
-        <a href="order.php?dish=Mushroom Chilli Dry" class="btn btn-success order-btn">Order Now</a>
-    </div>
+        <div class="menu-item" data-category="main-course">
+            <img src="images/daltad.jpg" alt="Vegetable Hakka Noodles">
+            <h3>Dal Tadka</h3>
+            <p>Yellow lentils cooked to perfection, tempered with a sizzling mix of ghee, cumin seeds, garlic, and red chilies. Light yet flavourful.</p>
+            <span class="price">₹170</span>
+            <a href="order.php?dish=Vegetable Hakka Noodles" class="btn btn-success order-btn">Order Now</a>
+        </div>
 
-    <div class="menu-item">
-        <img src="images/dish3.jpg" alt="French Fries">
-        <h3>French Fries</h3>
-        <p>Classic crispy fried potato strips, served with your choice of seasoning.</p>
-        <span class="price">₹100</span>
-        <a href="order.php?dish=French Fries" class="btn btn-success order-btn">Order Now</a>
-    </div>
+        <div class="menu-item" data-category="chinese">
+            <img src="images/vegspr.jpg" alt="Garlic Naan">
+            <h3>Vegetable Spring Rolls</h3>
+            <p>Crispy fried rolls filled with a generous mix of shredded cabbage, carrots, and bell peppers. Served hot with sweet chili sauce.</p>
+            <span class="price">₹70</span>
+            <a href="order.php?dish=Garlic Naan" class="btn btn-success order-btn">Order Now</a>
+        </div>
 
-    <div class="menu-item">
-        <img src="images/dish4.jpg" alt="Pav Bhaji">
-        <h3>Pav Bhaji</h3>
-        <p>A popular Mumbai street food - spiced mashed vegetables served with buttered bread rolls.</p>
-        <span class="price">₹130</span>
-        <a href="order.php?dish=Pav Bhaji" class="btn btn-success order-btn">Order Now</a>
-    </div>
-</div>
+        <div class="menu-item" data-category="chinese">
+            <img src="images/panchildry.jpg" alt="Fresh Lime Soda">
+            <h3>Paneer Chilli Dry</h3>
+            <p>Crispy fried paneer tossed in a wok with green chilies, onions, and bell peppers in a fiery, tangy Indo-Chinese sauce.</p>
+            <span class="price">₹80</span>
+            <a href="order.php?dish=Fresh Lime Soda" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="chinese">
+            <img src="images/mushdry.jpg" alt="Paneer Chilli Dry">
+            <h3>Mushroom Chilli Dry</h3>
+            <p>Fried mushroom chunks tossed in a spicy and tangy dark soy and chili sauce. Offers a delightful bite and strong umami flavour.</p>
+            <span class="price">₹210</span>
+            <a href="order.php?dish=Paneer Chilli Dry" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="chinese">
+            <img src="images/vegmunch.jpg" alt="Schezwan Fried Rice">
+            <h3>Vegetable Manchurian Dry</h3>
+            <p>Deep-fried mixed vegetable balls coated and tossed in a zesty, flavorful, slightly sweet and sour Manchurian sauce.</p>
+            <span class="price">₹180</span>
+            <a href="order.php?dish=Schezwan Fried Rice" class="btn btn-success order-btn">Order Now</a>
+        </div>
 
-<div class="menu-container">
-    <div class="menu-item">
-        <img src="images/itlpasta.jpg" alt="Chana Masala">
-        <h3>Chana Masala</h3>
-        <p>Spicy and tangy chickpea curry, a popular North Indian dish.</p>
-        <span class="price">₹150</span>
-        <a href="order.php?dish=Chana Masala" class="btn btn-success order-btn">Order Now</a>
-    </div>
+        <div class="menu-item" data-category="chinese">
+            <img src="images/honeyp.jpg" alt="Butter Roti">
+            <h3>Honey Chilli Potato</h3>
+            <p>Crispy fried potato fingers tossed in a sticky, sweet-spicy sauce made from chili flakes and honey, garnished with sesame seeds.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="chinese">
+            <img src="images/vegcrisp.jpg" alt="Butter Roti">
+            <h3>Veg Crispy</h3>
+            <p>Batter-fried exotic vegetables tossed in a spicy, fiery chili-garlic paste. A popular crunchy starter with bold flavours.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="chinese">
+            <img src="images/amricanchoup.jpg" alt="Butter Roti">
+            <h3>Veg American Chopsuey</h3>
+            <p>Crispy fried noodles served with a sweet and sour vegetable sauce, topped with a fried egg (optional - make sure yours is eggless).</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="chinese">
+            <img src="images/gobmunch.jpg" alt="Butter Roti">
+            <h3>Gobi Manchurian Gravy</h3>
+            <p>Cauliflower florets fried until crisp, then dipped in a thick, spicy, and tangy Manchurian gravy. Excellent with Fried Rice.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="rice-noodle">
+            <img src="images/vegbir.jpg" alt="Butter Roti">
+            <h3>Vegetable Biryani</h3>
+            <p>Aromatic basmati rice layered with mixed vegetables and potent spices, slow-cooked in the traditional 'dum' style. Served with Raita.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="rice-noodle">
+            <img src="images/sfryrice.jpg" alt="Butter Roti">
+            <h3>Schezwan Fried Rice</h3>
+            <p>Wok-tossed rice with finely chopped vegetables and a generous dash of spicy, flavourful Schezwan sauce. A fiery treat.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="rice-noodle">
+            <img src="images/panpula.jpg" alt="Butter Roti">
+            <h3>Paneer Pulao</h3>
+            <p>Fragrant basmati rice lightly tossed with paneer cubes, green peas, and mild spices. A rich and subtly spiced rice preparation.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="rice-noodle">
+            <img src="images/veghakka.jpg" alt="Butter Roti">
+            <h3>Vegetable Hakka Noodles</h3>
+            <p>Classic stir-fried noodles tossed with cabbage, carrots, capsicum, and savory Chinese sauces in a hot wok. Simple and delicious.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="rice-noodle">
+            <img src="images/garlicrice.jpg" alt="Butter Roti">
+            <h3>Burnt Garlic Fried Rice</h3>
+            <p>Rice stir-fried with burnt garlic, spring onions, and oriental spices. Gives a beautiful, smoky, caramelized garlic aroma.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="rice-noodle">
+            <img src="images/singanoodle.jpg" alt="Butter Roti">
+            <h3>Veg Singapore Noodles</h3>
+            <p>Thin rice noodles stir-fried with curry powder, bean sprouts, and bell peppers, giving a subtle yellow hue and slightly sweet taste.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="rice-noodle">
+            <img src="images/curdrice.jpg" alt="Butter Roti">
+            <h3>Curd Rice (Dahi Bhaat)</h3>
+            <p>Soft-cooked rice mixed with creamy yogurt, tempered with mustard seeds, curry leaves, and green chilies. A soothing South Indian classic.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="rice-noodle">
+            <img src="images/jirarice.jpg" alt="Butter Roti">
+            <h3>Jeera Rice</h3>
+            <p>Basmati rice lightly tossed with roasted cumin seeds and a touch of ghee. Simple, aromatic, and the perfect side for any curry.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="starter">
+            <img src="images/tandplat.jpg" alt="Butter Roti">
+            <h3>Tandoori Platter (Veg)</h3>
+            <p>An assortment of Tandoori appetizers: Paneer Tikka, Veg Seekh Kebab, and Mushroom Tikka. Served with mint chutney.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="starter">
+            <img src="images/pantikka.jpg" alt="Butter Roti">
+            <h3>Paneer Tikka</h3>
+            <p>Marinated paneer cubes skewered with bell peppers and onions, grilled to perfection in a traditional Tandoor. Smoky and tender.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="starter">
+            <img src="images/samosa.jpg" alt="Butter Roti">
+            <h3>Samosa (2 pcs)</h3>
+            <p>Crispy pastry pockets filled with spiced potatoes and peas. A timeless Indian snack, served with tamarind and mint chutney.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="starter">
+            <img src="images/seekhkabab.jpg" alt="Butter Roti">
+            <h3>Veg Seekh Kebab</h3>
+            <p>Minced vegetables and paneer, blended with spices, skewered, and roasted in the Tandoor. Soft texture with a smoky flavour.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="starter">
+            <img src="images/frenchfry.jpg" alt="Butter Roti">
+            <h3>French Fries (Peri Peri)</h3>
+            <p>Crispy golden potato strips seasoned with a zesty and spicy Peri Peri masala. A fiery twist on a classic snack.</p>
+            <span class="price">₹30</span>ge
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="starter">
+            <img src="images/harakabab.jpg" alt="Butter Roti">
+            <h3>Hara Bhara Kebab</h3>
+            <p>Shallow-fried patties made from spinach, peas, and potatoes, mildly spiced and often served with a cashew in the center.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="starter">
+            <img src="images/chilip.jpg" alt="Butter Roti">
+            <h3>Honey Chilli Potato</h3>
+            <p>Deep-fried crispy fritters made from sliced onions coated in a spiced gram flour batter. Perfect rainy-day snack.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="starter">
+            <img src="images/pavbhaji.jpg" alt="Butter Roti">
+            <h3>Pav Bhaji</h3>
+            <p>Mashed mixed vegetables cooked in a spicy tomato gravy (Bhaji), served piping hot with butter-toasted bread rolls (Pav).</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="indian-bread">
+            <img src="images/gnaan.jpg" alt="Butter Roti">
+            <h3>Garlic Naan</h3>
+            <p>Soft, leavened flatbread baked in the Tandoor, generously brushed with butter and finely chopped fresh garlic.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="indian-bread">
+            <img src="images/butrnaan.jpg" alt="Butter Roti">
+            <h3>Butter Naan</h3>
+            <p>Fluffy, leavened flatbread freshly baked in the clay oven (Tandoor), perfectly soft and coated with melted butter.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="indian-bread">
+            <img src="images/lachapar.jpg" alt="Butter Roti">
+            <h3>Lachha Paratha</h3>
+            <p>Multi-layered whole wheat bread, flaked and shallow-fried. Its flaky texture pairs beautifully with any gravy.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="indian-bread">
+            <img src="images/tandoorroti.jpg" alt="Butter Roti">
+            <h3>Tandoori Roti</h3>
+            <p>Simple, whole wheat flatbread, baked crisp in the Tandoor. A healthy and traditional accompaniment to curries.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="indian-bread">
+            <img src="images/greensalad.jpg" alt="Butter Roti">
+            <h3>Green Salad</h3>
+            <p>A refreshing mix of freshly sliced cucumbers, carrots, tomatoes, and onions, served with a lemon wedge and light seasoning.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="indian-bread">
+            <img src="images/papad.jpg" alt="Butter Roti">
+            <h3>Masala Papad</h3>
+            <p>Crispy roasted lentil cracker (papad), topped with a crunchy mixture of chopped onions, tomatoes, coriander, and spices.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="indian-bread">
+            <img src="images/raita.jpg" alt="Butter Roti">
+            <h3>Mix Raita</h3>
+            <p>Creamy plain yogurt whisked and mixed with finely chopped cucumber, tomato, and onion, seasoned with roasted cumin and salt.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="indian-bread">
+            <img src="images/onionring.jpg" alt="Butter Roti">
+            <h3>Onion Rings</h3>
+            <p>Thick-cut, battered onion rings, deep-fried until golden and crispy. Served with a tangy dipping sauce.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="beverage">
+            <img src="images/limesoda.jpg" alt="Butter Roti">
+            <h3>Fresh Lime Soda</h3>
+            <p>A refreshing mix of fresh lime juice with club soda, served chilled. You can choose it sweet, salty, or mixed. A perfect thirst quencher.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="beverage">
+            <img src="images/chaas.jpg" alt="Butter Roti">
+            <h3>Masala Chaas (Buttermilk)</h3>
+            <p>Traditional spiced buttermilk churned to perfection, flavoured with roasted cumin, mint, and rock salt. Great for digestion.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
+        
+        <div class="menu-item" data-category="beverage">
+            <img src="images/wmelonjuice.jpg" alt="Butter Roti">
+            <h3>Watermelon Cooler</h3>
+            <p>Cooler	A cool, revitalizing drink made from fresh watermelon juice, a hint of mint, and a dash of black salt. Naturally sweet and hydrating.</p>
+            <span class="price">₹30</span>
+            <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
+        </div>
 
-    <div class="menu-item">
-        <img src="images/quinoa.jpg" alt="Aloo Gobi">
-        <h3>Aloo Gobi</h3>
-        <p>Potatoes and cauliflower cooked with turmeric, cumin, and other spices.</p>
-        <span class="price">₹140</span>
-        <a href="order.php?dish=Aloo Gobi" class="btn btn-success order-btn">Order Now</a>
-    </div>
-
-    <div class="menu-item">
-        <img src="images/dish3.jpg" alt="Vegetable Pulao">
-        <h3>Vegetable Pulao</h3>
-        <p>Fragrant rice cooked with select vegetables and mild Indian spices.</p>
-        <span class="price">₹130</span>
-        <a href="order.php?dish=Vegetable Pulao" class="btn btn-success order-btn">Order Now</a>
-    </div>
-
-    <div class="menu-item">
-        <img src="images/dish4.jpg" alt="Vegetable Fried Rice">
-        <h3>Vegetable Fried Rice</h3>
-        <p>Stir-fried rice with a medley of fresh vegetables and light soy sauce.</p>
-        <span class="price">₹160</span>
-        <a href="order.php?dish=Vegetable Fried Rice" class="btn btn-success order-btn">Order Now</a>
-    </div>
-</div>
-
-<div class="menu-container">
-    <div class="menu-item">
-        <img src="images/itlpasta.jpg" alt="Vegetable Hakka Noodles">
-        <h3>Vegetable Hakka Noodles</h3>
-        <p>Stir-fried noodles with mixed vegetables and a savory Chinese sauce.</p>
-        <span class="price">₹170</span>
-        <a href="order.php?dish=Vegetable Hakka Noodles" class="btn btn-success order-btn">Order Now</a>
-    </div>
-
-    <div class="menu-item">
-        <img src="images/quinoa.jpg" alt="Paneer Chilli Dry">
-        <h3>Paneer Chilli Dry</h3>
-        <p>Crispy fried paneer tossed in a spicy and tangy Indo-Chinese sauce.</p>
-        <span class="price">₹210</span>
-        <a href="order.php?dish=Paneer Chilli Dry" class="btn btn-success order-btn">Order Now</a>
-    </div>
-
-    <div class="menu-item">
-        <img src="images/dish3.jpg" alt="Vegetable Manchurian Dry">
-        <h3>Vegetable Manchurian Dry</h3>
-        <p>Deep-fried vegetable balls tossed in a flavorful and slightly sweet sauce.</p>
-        <span class="price">₹190</span>
-        <a href="order.php?dish=Vegetable Manchurian Dry" class="btn btn-success order-btn">Order Now</a>
-    </div>
-
-    <div class="menu-item">
-        <img src="images/dish4.jpg" alt="Schezwan Noodles">
-        <h3>Schezwan Noodles</h3>
-        <p>Stir-fried noodles with vegetables in a spicy and bold Schezwan sauce.</p>
-        <span class="price">₹180</span>
-        <a href="order.php?dish=Schezwan Noodles" class="btn btn-success order-btn">Order Now</a>
-    </div>
-</div>
+        
+        </div>
 </section>
 
 <!-- Footer Section Starts -->
@@ -321,6 +498,42 @@
     </div>
     <p class="footer-bottom">&copy; 2025 Green Bytes | All Rights Reserved</p>
 </footer>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById('menuSearch');
+    const filterSelect = document.getElementById('menuFilter');
+    // Important: Yeh line saare menu items ko pakadti hai
+    const menuItems = document.querySelectorAll('.menu-item'); 
+
+    // Main filtering logic function
+    function filterMenu() {
+        const searchText = searchInput.value.toLowerCase();
+        const selectedCategory = filterSelect.value;
+
+        menuItems.forEach(item => {
+            // Dish ka naam h3 tag se pakadta hai
+            const dishName = item.querySelector('h3').textContent.toLowerCase();
+            // Category ko data-category attribute se read karta hai
+            const itemCategory = item.getAttribute('data-category');
+            
+            // Check karta hai ki search aur category dono match ho rahe hain ya nahi
+            const matchesSearch = dishName.includes(searchText);
+            const matchesCategory = selectedCategory === 'all' || itemCategory === selectedCategory;
+
+            if (matchesSearch && matchesCategory) {
+                item.style.display = 'block'; // Item dikhao
+            } else {
+                item.style.display = 'none'; // Item chhupao
+            }
+        });
+    }
+
+    // Key press aur dropdown change hone par filterMenu chalao
+    searchInput.addEventListener('keyup', filterMenu);
+    filterSelect.addEventListener('change', filterMenu);
+});
+</script>
 
                  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

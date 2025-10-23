@@ -247,10 +247,10 @@ $menu_count = $menu_result->fetch_assoc()['count'];
     <div class="container">
         <div class="footer-box">
             <h3>Quick Links</h3>
-            <a href="index.html"><i class="fas fa-angle-right"></i> Home</a>
-            <a href="about.html"><i class="fas fa-angle-right"></i> About</a>
-            <a href="menu.html"><i class="fas fa-angle-right"></i> Menu</a>
-            <a href="reservation.html"><i class="fas fa-angle-right"></i> Reservations</a>
+            <a href="index.php"><i class="fas fa-angle-right"></i> Home</a>
+            <a href="about.php"><i class="fas fa-angle-right"></i> About</a>
+            <a href="menu.php"><i class="fas fa-angle-right"></i> Menu</a>
+            <a href="reservation.php"><i class="fas fa-angle-right"></i> Reservations</a>
         </div>
 
         <div class="footer-box">

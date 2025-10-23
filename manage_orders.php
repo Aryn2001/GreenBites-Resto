@@ -2,8 +2,23 @@
 include("admin_check.php"); // Restricts access to admin only
 $conn = new mysqli("localhost", "root", "Mysql@2024", "hotel");
 
-// Fetch orders
-$result = $conn->query("SELECT * FROM orders ORDER BY order_time DESC");
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// 1. UPDATED QUERY: Use JOIN to fetch the username (u.username) associated with the order's user_id (o.user_id)
+$sql = "SELECT o.*, u.username AS user_account 
+        FROM orders o
+        JOIN users u ON o.user_id = u.id 
+        ORDER BY o.order_time DESC";
+
+$result = $conn->query($sql);
+
+if (!$result) {
+    die("Error retrieving orders: " . $conn->error);
+}
+
+$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -62,14 +77,13 @@ $result = $conn->query("SELECT * FROM orders ORDER BY order_time DESC");
   </style>
 </head>
 <body>
-
 <h2>Manage Orders</h2>
 
 <?php if ($result->num_rows > 0): ?>
 <table>
   <tr>
     <th>ID</th>
-    <th>User ID</th>
+    <th>User Account</th> 
     <th>Dish</th>
     <th>Quantity</th>
     <th>Order Time</th>
@@ -78,7 +92,7 @@ $result = $conn->query("SELECT * FROM orders ORDER BY order_time DESC");
   <?php while($row = $result->fetch_assoc()): ?>
     <tr>
       <td><?= $row['id'] ?></td>
-      <td><?= $row['user_id'] ?? 'Guest' ?></td>
+      <td><?= htmlspecialchars($row['user_account']) ?></td> 
       <td><?= htmlspecialchars($row['dish_name']) ?></td>
       <td><?= $row['quantity'] ?></td>
       <td><?= $row['order_time'] ?></td>

@@ -261,7 +261,7 @@
   <div class="review-wrapper">
     <h2>Leave a Review</h2>
 
-    <form onsubmit="alert('Review Submitted!'); return false;">
+    <form action="submit_review.php" method="post">
       <div class="form-group">
         <label for="dish">Dish Name</label>
         <input type="text" id="dish" name="dish" placeholder="Enter the dish name" required>

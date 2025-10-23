@@ -1,10 +1,28 @@
 <?php
-include 'admin_check.php';
+// Ensure this file handles session start and admin role check
+include 'admin_check.php'; 
+
 $conn = new mysqli("localhost", "root", "Mysql@2024", "hotel");
 
-$res = $conn->query("SELECT * FROM reservations ORDER BY reservation_date ASC");
-?>
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
+// 1. UPDATED QUERY: Use JOIN to fetch the username associated with the user_id
+$sql = "SELECT r.*, u.username AS user_account 
+        FROM reservations r
+        JOIN users u ON r.user_id = u.id
+        ORDER BY r.reservation_date ASC";
+
+$res = $conn->query($sql);
+
+if (!$res) {
+    die("Error retrieving reservations: " . $conn->error);
+}
+
+// Ensure the connection is closed after the query
+$conn->close();
+?>
 <style>
   body {
   font-family: 'Segoe UI', sans-serif;
@@ -71,34 +89,38 @@ tr:hover {
             <thead class="table-success">
                 <tr>
                     <th>ID</th>
+                    <th>User Account</th> 
                     <th>Date</th>
                     <th>Time</th>
                     <th>Guests</th>
-                    <th>Name</th>
+                    <th>Name (Form)</th>
                     <th>Phone</th>
                     <th>Requests</th>
                     <th>Created At</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <?php while ($row = $res->fetch_assoc()): ?>
-                  <tr>
-                      <td><?= $row['id'] ?></td>
-                      <td><?= $row['reservation_date'] ?></td>
-                      <td><?= $row['reservation_time'] ?></td>
-                      <td><?= $row['party_size'] ?></td>
-                      <td><?= $row['customer_name'] ?></td>
-                      <td><?= $row['contact_number'] ?></td>
-                      <td><?= $row['special_requests'] ?></td>
-                      <td><?= $row['created_at'] ?></td>
-                      <td>
-                          <form action="delete_reservation.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this reservation?');">
-                            <input type="hidden" name="id" value="<?= $row['id'] ?>">
-                            <button type="submit" class="btn-delete">Delete</button>
-                          </form>
-                      </td>
-                  </tr>
-
+                    <tr>
+                        <td><?= $row['id'] ?></td>
+                        
+                        <td><?= htmlspecialchars($row['user_account']) ?></td> 
+                        
+                        <td><?= $row['reservation_date'] ?></td>
+                        <td><?= $row['reservation_time'] ?></td>
+                        <td><?= $row['party_size'] ?></td>
+                        <td><?= $row['customer_name'] ?></td> 
+                        <td><?= $row['contact_number'] ?></td>
+                        <td><?= $row['special_requests'] ?></td>
+                        <td><?= $row['created_at'] ?></td>
+                        <td>
+                            <form action="delete_reservation.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this reservation?');">
+                                <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                                <button type="submit" class="btn-delete">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
                 <?php endwhile; ?>
             </tbody>
         </table>

@@ -64,85 +64,6 @@
     border-radius: 12px;
   }
   
-/* hero section slider  */
-
-.hero-slider {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-}
-
-.hero-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transition: opacity 1s ease;
-    z-index: 0;
-}
-
-.hero-slide.active-slide {
-    opacity: 1;
-    z-index: 1;
-}
-
-.hero-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    z-index: 2;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.slider-controls {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-    transform: translateY(-50%);
-    z-index: 3;
-}
-
-.slider-controls span {
-    font-size: 2rem;
-    cursor: pointer;
-    color: white;
-}
-
-.hero-dots {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
-    z-index: 3;
-}
-
-.hero-dot {
-    height: 12px;
-    width: 12px;
-    margin: 0 6px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 50%;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.hero-dot.active {
-    background-color: white;
-}
-
 
 .about-section {
     padding: 50px 0;
@@ -477,10 +398,10 @@ footer .cta-section {
 
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
+    background-color: #343a40;
     text-align: center;
 }
 
@@ -541,89 +462,179 @@ body {
 
 /* Menu Section */
 .menu {
-    margin: 40px auto;
+    margin: 60px auto; /* Sticky navbar ke baad achha space */
     padding: 20px;
     max-width: 90%;
 }
 
+/* Professional Heading Underline Style */
+.section-heading-underline {
+    position: relative;
+    padding-bottom: 15px; 
+    margin-bottom: 50px; /* Controls aur menu ke beech zyada space */
+    display: block; 
+    text-align: center;
+    font-size: 2.5rem; 
+    color: #28a745; 
+    font-weight: 700; 
+}
+
+.section-heading-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 80px; 
+    background-color: #28a745;
+    border-radius: 2px;
+}
+
+/* -------------------------------------- */
+/* 3. SEARCH AND FILTER CONTROLS          */
+/* -------------------------------------- */
+
+.menu-controls {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    margin-bottom: 40px; 
+    padding: 0 15px; 
+}
+
+.menu-search {
+    position: relative;
+    width: 45%; 
+}
+
+.menu-search input {
+    width: 100%;
+    padding: 12px 45px 12px 20px; 
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-size: 1rem;
+}
+
+.menu-search input:focus {
+    border-color: #28a745; 
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.15); 
+    outline: none;
+}
+
+.menu-search .fa-search {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+}
+
+.menu-filter {
+    width: 25%; 
+}
+.menu-filter select {
+    width: 100%;
+    padding: 12px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    background-color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #343a40;
+}
+
+
+/* -------------------------------------- */
+/* 4. MENU GRID & ITEM STYLING (FINAL)    */
+/* -------------------------------------- */
+
 .menu-container {
     display: grid;
+    /* Yeh line 4 columns (ya jitne fit hon) automatically bana degi */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    gap: 30px; 
+    padding: 20px 0;
+    margin: 0 auto;
+
+    /* NEW FIX: Single Item ko center mein laane ke liye */
+    justify-content: center; 
+    /* NEW FIX: Agar items kam hon to unhe shuru se failne se rokta hai */
+    align-items: start; 
 }
 
 .menu-item {
     background: #fff;
-    border-radius: 10px;
-    padding: 15px;
+    border-radius: 12px;
+    padding: 20px; 
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    
+    /* NEW FIX: Jab single item bachta hai to uski maximum width set karta hai */
+    max-width: 300px; 
+    width: 100%; /* Ensure it works well with grid */
 }
 
 .menu-item:hover {
     transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
 }
 
 .menu-item img {
     width: 100%;
-    height: 200px;
+    height: 180px; 
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.menu-item h3 {
+    font-size: 1.4rem;
+    color: #28aa46; 
+    margin: 10px 0 5px 0;
+}
+
+.menu-item p {
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-bottom: 15px;
+    flex-grow: 1;
 }
 
 .price {
     display: block;
-    font-size: 18px;
-    font-weight: bold;
-    color: #28a745;
-    margin-top: 10px;
+    font-size: 1.6rem; 
+    font-weight: 700;
+    color: #1a7e36; 
+    margin: 10px 0 15px 0;
 }
 
 .order-btn {
     display: block;
     width: 100%;
-    margin-top: 10px;
     font-weight: bold;
-    text-align: center;
-    padding: 8px;
+    padding: 10px; /* Thoda bada button */
+    border-radius: 50px !important; /* Pill shape */
 }
 
-
-
-h2 {
-    font-size: 2.5rem;
-    color: #28a745;
-}
-
-h3 {
-    font-size: 1.5rem;
-    margin: 10px 0;
-    color: #333;
-}
-
-p {
-    font-size: 1rem;
-    color: #666;
-}
-
-/* .price {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #28a745;
-} */
-
-/* Responsive */
-@media (max-width: 1024px) {
-    .menu-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+/* -------------------------------------- */
+/* 5. RESPONSIVE CONTROLS                 */
+/* -------------------------------------- */
 
 @media (max-width: 768px) {
-    .menu-container {
-        grid-template-columns: 1fr;
+    .menu-controls {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+        padding: 0 10px;
+    }
+    .menu-search, .menu-filter {
+        width: 100%; 
     }
 }
 
