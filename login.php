@@ -1,5 +1,5 @@
-<!DOCTYPE php>
-<php lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,14 +77,38 @@
     width: 100%;
     background: #fff;
     padding: 40px 30px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    border-radius: 16px; /* Slightly larger radius */
+    box-shadow: 0 10px 30px rgba(39, 174, 96, 0.15); /* Green-tinged shadow for 'green bites' feel */
+    border-top: 5px solid #2ecc71; /* Accent color border */
 }
+
+/* New beautiful header styling */
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.login-header i {
+    color: #27ae60; /* Brand green */
+    margin-bottom: 10px;
+}
+
+.login-header h3 {
+    color: #7f8c8d; /* Subtle secondary text */
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+/* End of new beautiful header styling */
+
 
 .login-container h2 {
     text-align: center;
     color: #27ae60;
     margin-bottom: 25px;
+    font-size: 2rem; /* Make it slightly bigger */
+    font-weight: 700;
 }
 
 .login-form .form-group {
@@ -106,6 +130,13 @@
     border-radius: 8px;
     font-size: 15px;
     outline: none;
+    transition: border-color 0.3s;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: #2ecc71;
+    box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
 }
 
 .checkbox-group {
@@ -124,16 +155,22 @@
     font-size: 16px;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.1s;
 }
 
 .btn-login:hover {
     background-color: #219150;
+    transform: translateY(-1px);
 }
 
 .form-footer {
     text-align: center;
     margin-top: 20px;
+}
+
+.form-footer p {
+    margin-top: 10px;
+    margin-bottom: 0;
 }
 
 .form-footer a {
@@ -153,9 +190,8 @@
     margin-bottom: 15px;
     border-radius: 6px;
     text-align: center;
+    font-weight: 500;
 }
-
-
 </style>
 </head>
 <body>
@@ -191,6 +227,14 @@
 
     <section class="login-section">
     <div class="login-container">
+        
+        <!-- NEW BEAUTIFUL HEADER CONTENT -->
+        <div class="login-header">
+            <i class="fas fa-leaf fa-3x"></i>
+            <h3>The Fresh Start You Deserve</h3>
+        </div>
+        <!-- END OF NEW CONTENT -->
+
         <h2>Login to Your Green Bites Account</h2>
 
         <div id="login-error-message" class="error-message" style="display:none;">
@@ -263,5 +307,4 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</php>
-
+</html>

@@ -72,14 +72,7 @@ echo $_SESSION['role'];
         <label for="price" class="form-label">Price (₹)</label>
         <input type="number" step="0.01" class="form-control" id="price" name="price" required>
       </div>
-
-        <div class="mb-3">
-          <label for="image" class="form-label">Dish Image Upload Karein</label>
-          <input class="form-control" type="file" id="image" name="image" accept="image/*" required>
-          <small class="form-text text-muted">Image file ka naam database mein 'image_url' ke roop mein save hoga.</small>
-        </div>
         
-
       <div class="text-end">
         <button type="submit" name="add_dish" class="btn btn-success">Add Dish</button>
       </div>

@@ -19,64 +19,64 @@ $menu_count = $menu_result->fetch_assoc()['count'];
 ?>
 
 
-<!DOCTYPE php>
-<php lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Bites - Menu</title>
+    <title>Green Bites - Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="js/script.js" defer></script>
     <link rel="stylesheet" href="css/style.css">
     <style>
 
-  .admin-navbar {
-    background-color: #28a745; /* Green background */
-    padding: 15px;
-    border-radius: 0 0 15px 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-
-  .admin-navbar .navbar-brand {
-    font-size: 1.5rem;
-    letter-spacing: 1px;
-  }
-
-  .admin-navbar .nav-link {
-    color: white;
-    transition: all 0.3s ease;
-    border: 1px solid white;
-    margin-left: 8px;
-  }
-
-  .admin-navbar .nav-link:hover {
-    background-color: white;
-    color: #28a745 !important;
-  }
-
-  @media (max-width: 768px) {
-    .admin-navbar .nav-link {
-      display: block;
-      margin-top: 10px;
+    .admin-navbar {
+        background-color: #28a745; /* Green background */
+        padding: 15px;
+        border-radius: 0 0 15px 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-  }
+
+    .admin-navbar .navbar-brand {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+    }
+
+    .admin-navbar .nav-link {
+        color: white;
+        transition: all 0.3s ease;
+        border: 1px solid white;
+        margin-left: 8px;
+    }
+
+    .admin-navbar .nav-link:hover {
+        background-color: white;
+        color: #28a745 !important;
+    }
+
+    @media (max-width: 768px) {
+        .admin-navbar .nav-link {
+            display: block;
+            margin-top: 10px;
+        }
+    }
 
 /* Admin Dashboard Section Styling */
 /* Make the container a little wider and add spacing */
 .container.my-5 {
-  padding-top: 60px;
-  padding-bottom: 60px;
-  background-color: #f4f8f5;
-  border-radius: 12px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #f4f8f5;
+    border-radius: 12px;
 }
 
 /* Section Heading */
 .container.my-5 h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #218838;
-  margin-bottom: 50px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #218838;
+    margin-bottom: 50px;
 }
 
 /* Dashboard Cards */
@@ -109,10 +109,10 @@ $menu_count = $menu_result->fetch_assoc()['count'];
 
 /* Responsive Fix */
 @media (max-width: 767px) {
-  .col-md-3 {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
+    .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }
     /* Footer Styling */
 .footer {
@@ -171,15 +171,20 @@ $menu_count = $menu_result->fetch_assoc()['count'];
 <body>
     <!-- Navbar from index.php -->
     <nav class="navbar navbar-expand-lg admin-navbar mb-4">
-  <div class="container-fluid">
-    <a class="navbar-brand text-white fw-bold" href="#">Admin Panel</a>
-    <div>
-      <a class="nav-link btn btn-outline-light me-2" href="manage_orders.php">Orders</a>
-      <a class="nav-link btn btn-outline-light me-2" href="manage_users.php">Users</a>
-      <a class="nav-link btn btn-outline-light me-2" href="manage_menu.php">Menu</a>
-      <a class="nav-link btn btn-outline-light me-2" href="manage_reservations.php">Reservations</a>
+    <div class="container-fluid">
+        <a class="navbar-brand text-white fw-bold" href="#">Admin Panel</a>
+        <div>
+            <!-- ADDED HOME BUTTON -->
+            <a class="nav-link btn btn-outline-light me-2" href="index.php">
+                <i class="fas fa-home me-1"></i> Home
+            </a>
+            <!-- EXISTING MANAGEMENT LINKS -->
+            <a class="nav-link btn btn-outline-light me-2" href="manage_orders.php">Orders</a>
+            <a class="nav-link btn btn-outline-light me-2" href="manage_users.php">Users</a>
+            <a class="nav-link btn btn-outline-light me-2" href="manage_menu.php">Menu</a>
+            <a class="nav-link btn btn-outline-light me-2" href="manage_reservations.php">Reservations</a>
+        </div>
     </div>
-  </div>
 </nav>
 
 <section class="container my-5">
@@ -217,20 +222,22 @@ $menu_count = $menu_result->fetch_assoc()['count'];
     </div>
 
     <div class="col-md-3">
-  <div class="card shadow-sm text-center">
-    <div class="card-body">
-      <h5 class="card-title">Menu Items</h5>
-      <p class="card-text display-6">
-        <?php
-          include 'db_connect.php';
-          $menuCountQuery = $conn->query("SELECT COUNT(*) as total FROM menu");
-          $menuCount = $menuCountQuery->fetch_assoc();
-          echo $menuCount['total'];
-        ?>
-      </p>
-      <a href="manage_menu.php" class="btn btn-outline-success">Edit Menu</a>
+    <div class="card shadow-sm text-center">
+        <div class="card-body">
+            <h5 class="card-title">Menu Items</h5>
+            <p class="card-text display-6">
+                <?php
+                    // NOTE: The database connection is already established at the top of the file ($conn)
+                    // The original code included 'db_connect.php' here, which is redundant/risky
+                    // I will use the $conn variable established at the top for consistency and safety.
+                    $menuCountQuery = $conn->query("SELECT COUNT(*) as total FROM menu");
+                    $menuCount = $menuCountQuery->fetch_assoc();
+                    echo $menuCount['total'];
+                ?>
+            </p>
+            <a href="manage_menu.php" class="btn btn-outline-success">Edit Menu</a>
+        </div>
     </div>
-  </div>
 </div>
 
 </div>
@@ -279,7 +286,7 @@ $menu_count = $menu_result->fetch_assoc()['count'];
     <p class="footer-bottom">&copy; 2025 Green Bytes | All Rights Reserved</p>
 </footer>
 
-                 
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</php>
+</html>

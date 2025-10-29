@@ -2,8 +2,8 @@
 include 'db_connect.php'; // Include your database connection
 ?>
 
-<!DOCTYPE php>
-<php lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,58 +13,128 @@ include 'db_connect.php'; // Include your database connection
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
     <style>
+/* --- 1. Reservation Hero Section CSS --- */
+.hero-reservation {
+    /* **IMAGE ADD KARNE KI JAGAH:** Yahan 'url()' ke andar forward slashes (/) ka use karein. */
+    /* Humne abhi aapki uploaded file: 'image_33e584.png' use ki hai. */
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
+                url('uploaded:image_33e584.png-4431b095-7d3e-42f5-a65d-84315c83a11c') center/cover no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 350px; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    color: white; 
+    padding: 60px 0;
+    text-align: center;
+}
 
-    /* form design */
+.hero-reservation h1 {
+    font-size: 3.5rem; 
+    font-weight: 800;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.hero-reservation p {
+    font-size: 1.5rem;
+    font-weight: 300;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+/* --- 2. Highlights Section CSS (New) --- */
+.highlights-section {
+    padding: 60px 0;
+    text-align: center;
+    background: #f0fff4; /* Very light green background */
+}
+
+.highlights-section h2 {
+    margin-bottom: 40px;
+    color: #28a745;
+    font-weight: 700;
+}
+
+.highlight-box {
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    height: 100%; /* Ensure boxes are same height */
+}
+
+.highlight-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-box i {
+    font-size: 3rem;
+    color: #f39c12; /* Accent color */
+    margin-bottom: 15px;
+}
+
+.highlight-box h4 {
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+
+/* form design */
 
 /* General Styles */
 .container-res {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 30px;
-  background-color: #f8f9fa;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .container-res h1 {
-  text-align: center;
-  color: #28a745;
-  margin-bottom: 24px;
+    text-align: center;
+    color: #28a745;
+    margin-bottom: 24px;
 }
 
 .form-group {
-  margin-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: bold;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
 }
 
 input, select, textarea {
-  width: 100%;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
 }
 
 .btn {
-  background-color: #28a745;
-  color: white;
-  padding: 10px 24px;
-  border: none;
-  border-radius: 6px;
-  width: 100%;
-  font-weight: bold;
-  cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .btn:hover {
-  background-color: #218838;
+    background-color: #218838;
 }
 
-     /* Footer Styling */
+/* Footer Styling */
 .footer {
     background: #2c3e50;
     color: white;
@@ -116,40 +186,81 @@ input, select, textarea {
     border-top: 1px solid #444;
     padding-top: 10px;
 }
- </style>
+    </style>
 
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
-  <div class="container">
-    <a class="navbar-brand fw-bold text-uppercase" href="index.php">
-      <i class="bi bi-egg-fried me-2"></i>Green Bites
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <div class="container">
+            <a class="navbar-brand fw-bold text-uppercase" href="index.php">
+                <i class="bi bi-egg-fried me-2"></i>Green Bites
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto align-items-center">
-        <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
-        <li class="nav-item"><a class="nav-link" href="order.php">Order</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="offers.php">Offers</a></li>
-        <li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>
-        <li class="nav-item"><a class="nav-link" href="reservation.php">Reserve</a></li>
-        <li class="nav-item"><a class="nav-link" href="reviews.php">Reviews</a></li>
-        <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
-        <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-        <li class="nav-item"><a class="nav-link" href="admin.php">Admin</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="order.php">Order</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="offers.php">Offers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="profile.php">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reservation.php">Reserve</a></li>
+                    <li class="nav-item"><a class="nav-link" href="reviews.php">Reviews</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.php">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="register.php">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin.php">Admin</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+    <!-- 1. Reservation Hero Section (Existing) -->
+    <section class="hero-reservation">
+        <div class="container">
+            <div>
+                <h1>Book Your Experience</h1>
+                <p>Secure your table for the best dining time at Green Bites today.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Why Dine With Us? Highlights Section (New) -->
+    <section class="highlights-section">
+        <div class="container">
+            <h2 class="mb-5">Why Dine With Us?</h2>
+            <div class="row">
+                <div class="col-md-4 d-flex">
+                    <div class="highlight-box">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h4>Farm-to-Table Freshness</h4>
+                        <p>Experience wholesome, organic ingredients sourced daily from local farms.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex">
+                    <div class="highlight-box">
+                        <i class="fas fa-couch"></i>
+                        <h4>Comfortable Ambiance</h4>
+                        <p>Enjoy a relaxing and beautifully designed space perfect for any occasion.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 d-flex">
+                    <div class="highlight-box">
+                        <i class="fas fa-award"></i>
+                        <h4>Award-Winning Chefs</h4>
+                        <p>Our culinary team crafts unique and delightful vegetarian dishes every day.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Reservation Form Section (Existing) -->
     <section class="container-res">
         <h1>Reserve Your Table</h1>
         
@@ -163,10 +274,10 @@ input, select, textarea {
                 <label for="reservation_time">Time:</label>
                 <select id="reservation_time" name="reservation_time" required>
                     <option value="">Select Time</option>
-                    <option value="12:00">12:00 PM</option>
-                    <option value="12:30">12:30 PM</option>
-                    <option value="19:00">7:00 PM</option>
-                    <option value="19:30">7:30 PM</option>
+                    <option value="12:00">12:00 PM (Lunch)</option>
+                    <option value="12:30">12:30 PM (Lunch)</option>
+                    <option value="19:00">7:00 PM (Dinner)</option>
+                    <option value="19:30">7:30 PM (Dinner)</option>
                 </select>
             </div>
 
@@ -233,4 +344,4 @@ input, select, textarea {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</php>
+</html>

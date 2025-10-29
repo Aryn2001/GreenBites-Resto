@@ -1,5 +1,5 @@
-<!DOCTYPE php>
-<php lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,66 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <script src="js/script.js" defer></script>
     <link rel="stylesheet" href="css/style.css">
-    <style>/* Footer Styling */
+    <style>
+/* --- STYLES ADDED FOR MENU CONTROLS (Search/Filter) --- */
+.menu-controls {
+    display: flex;
+    flex-wrap: wrap; /* Allows stacking on mobile */
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto 60px auto; /* Increased vertical margin (60px bottom gap) */
+    padding: 0 15px;
+    max-width: 900px;
+}
+
+.menu-search, .menu-filter {
+    flex: 1 1 300px; /* Ensures minimum width and flexible resizing */
+}
+
+/* Style the search input container */
+.menu-search {
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-search input {
+    width: 100%;
+    /* Increased padding for better visual size */
+    padding: 12px 40px 12px 15px; 
+    border: 2px solid #f39c12; /* Accent color border */
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.menu-search i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #f39c12;
+    font-size: 18px;
+    pointer-events: none;
+}
+
+/* Style the filter dropdown */
+.menu-filter .form-select {
+    width: 100%;
+    /* Increased padding for better visual size */
+    padding: 12px 15px; 
+    border: 2px solid #f39c12;
+    border-radius: 8px;
+    font-size: 16px;
+    height: auto; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+/* --- END OF MENU CONTROL STYLES --- */
+
+
+/* Footer Styling (Existing) */
 .footer {
     background: #2c3e50;
     color: white;
@@ -93,11 +152,12 @@
   </div>
 </nav>
 
-   
-     <!-- Featured Dishes Slider -->
-     <section class="featured-slider">
+    
+      <!-- Featured Dishes Slider (Placeholder section - no content provided) -->
+      <section class="featured-slider">
         <h2>Featured Dishes</h2>
- <section class="menu">
+</section>
+<section class="menu">
     
     <div class="menu-controls container"> 
         <div class="menu-search">
@@ -453,7 +513,7 @@
         <div class="menu-item" data-category="beverage">
             <img src="images/wmelonjuice.jpg" alt="Butter Roti">
             <h3>Watermelon Cooler</h3>
-            <p>Cooler	A cool, revitalizing drink made from fresh watermelon juice, a hint of mint, and a dash of black salt. Naturally sweet and hydrating.</p>
+            <p>Cooler   A cool, revitalizing drink made from fresh watermelon juice, a hint of mint, and a dash of black salt. Naturally sweet and hydrating.</p>
             <span class="price">₹30</span>
             <a href="order.php?dish=Butter Roti" class="btn btn-success order-btn">Order Now</a>
         </div>
@@ -535,7 +595,6 @@
 });
 </script>
 
-                 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</php>
+</html>
