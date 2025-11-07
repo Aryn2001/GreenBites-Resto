@@ -24,6 +24,10 @@
     padding: 0.4rem 0.8rem;
   }
   
+/* new navbar  */
+
+
+
 
 
 /* index page esplore section  */
@@ -873,5 +877,65 @@ body {
 
   /* login page  */
 
-  
+  /* navbaaar */
+
+  /* ===== NAVBAR STYLING ===== */
+.navbar {
+  background-color: #2e8b57;
+  padding: 10px 0;
+  overflow: hidden; /* Prevent horizontal overflow */
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar-nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.navbar-nav a:hover {
+  background-color: #256d45;
+  border-radius: 5px;
+}
+
+/* ===== GLOBAL FIX FOR PAGE LAYOUT ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrollbar globally */
+}
+
+/* ===== SLIDER / HERO FIX ===== */
+.hero, .slider, .carousel, .carousel-inner, .carousel-item img {
+  max-width: 100%;
+  overflow: hidden;
+  display: block;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+}
+
+/* ===== RESPONSIVE NAVBAR FOR SMALL SCREENS ===== */
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column;
+  }
+
+  .navbar-nav a {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
   

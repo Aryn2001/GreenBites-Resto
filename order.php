@@ -1,6 +1,6 @@
-<!-- <?php
+<?php
 // Database Connection
-$conn = new mysqli("localhost", "root", "Mysql@2024", "hotel");
+$conn = new mysqli("localhost", "root", "Mysql@2025", "hotel");
 
 // Check connection
 if ($conn->connect_error) {
@@ -10,7 +10,7 @@ if ($conn->connect_error) {
 // Fetch dishes from database
 $sql = "SELECT id, dish_name, price FROM menu";
 $result = $conn->query($sql);
-?> -->
+?>
 
 <?php
 // Fetch the dish name from the URL parameter

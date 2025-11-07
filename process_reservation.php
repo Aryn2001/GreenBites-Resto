@@ -12,7 +12,7 @@ if (!isset($_SESSION['user_id'])) {
 // Get the user ID from the session (This is the crucial change)
 $user_id = $_SESSION['user_id']; 
 
-$conn = new mysqli("localhost", "root", "Mysql@2024", "hotel");
+$conn = new mysqli("localhost", "root", "Mysql@2025", "hotel");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

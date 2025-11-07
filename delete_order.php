@@ -1,6 +1,6 @@
 <?php
 include("admin_check.php");
-$conn = new mysqli("localhost", "root", "Mysql@2024", "hotel");
+$conn = new mysqli("localhost", "root", "Mysql@2025", "hotel");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['order_id'])) {
     $id = intval($_POST['order_id']);

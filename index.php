@@ -16,50 +16,7 @@
 
     <style>
     
-/* 1. Base custom-navbar (Solid State - Applied after scroll) */
-.custom-navbar {
-    background-color: #198754 !important; /* Solid Green */
-    padding: 12px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    transition: background-color 0.4s ease; /* Important for smooth transition */
-}
 
-/* 2. Initial Transparent State (Applied on page load) */
-.transparent-initial {
-    /* Use absolute positioning to place it over the hero section initially */
-    position: absolute; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    
-    /* Transparent Background */
-    background-color: rgba(0, 0, 0, 0.45) !important; 
-    
-    /* Remove shadow on transparent state */
-    box-shadow: none !important;
-}
-
-/* 3. Link Colors */
-.navbar-nav .nav-link {
-    color: #ffffff !important;
-    margin-left: 15px;
-    transition: color 0.3s, background-color 0.3s;
-    border-radius: 5px;
-}
-.navbar-nav .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-/* If you used the button style, keep it */
-.nav-link.btn-nav-primary {
-    background-color: #28a745;
-    color: white !important;
-    padding: 6px 15px;
-    border-radius: 5px;
-    margin-left: 20px !important;
-    transition: background-color 0.3s;
-}
 /* slider */
 
 .hero {

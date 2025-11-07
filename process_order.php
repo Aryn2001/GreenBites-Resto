@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = new mysqli("localhost", "root", "Mysql@2024", "hotel");
+$conn = new mysqli("localhost", "root", "Mysql@2025", "hotel");
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $dish = $_POST['dish'];
@@ -9,8 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Optional: Check if user is logged in
     $user_id = $_SESSION['user_id'] ?? null;
 
-    $stmt = $conn->prepare("INSERT INTO orders (user_id, dish_name, quantity) VALUES (?, ?, ?)");
-    $stmt->bind_param("isi", $user_id, $dish, $quantity);
+   // ✅ Updated SQL query
+    $stmt = $conn->prepare("INSERT INTO orders (user_id, dish_name, quantity, address, phone) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("isiss", $user_id, $dish, $quantity, $address, $phone);
 
     if ($stmt->execute()) {
         echo "<script>alert('Order Submitted Successfully!'); window.location.href='profile.php';</script>";

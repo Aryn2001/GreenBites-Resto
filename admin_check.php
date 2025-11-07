@@ -1,6 +1,6 @@
 <?php
 session_start();
-$conn = new mysqli("localhost", "root", "Mysql@2024", "hotel");
+$conn = new mysqli("localhost", "root", "Mysql@2025", "hotel");
 
 // Check DB connection
 if ($conn->connect_error) {

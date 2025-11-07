@@ -3,11 +3,11 @@
 // --- CREDENTIALS UPDATED FOR 'hotel' DATABASE ---
 // Host: localhost
 // User: root
-// Pass: Mysql@2024
+// Pass: Mysql@2025
 // DB Name: hotel
 define('DB_HOST', 'localhost');      
 define('DB_USER', 'root');           
-define('DB_PASS', 'Mysql@2024');      
+define('DB_PASS', 'Mysql@2025');      
 define('DB_NAME', 'hotel'); // *** CORRECTED: Using 'hotel' database name ***
 // -------------------------------------------------
 

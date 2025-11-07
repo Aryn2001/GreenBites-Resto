@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
 $user = "root";
-$pass = "Mysql@2024";
+$pass = "Mysql@2025";
 $dbname = "hotel";
 
 $conn = new mysqli($host, $user, $pass, $dbname);

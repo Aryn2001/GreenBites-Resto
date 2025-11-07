@@ -1,7 +1,7 @@
 <?php
 include("admin_check.php");
 
-$conn = new mysqli("localhost", "root", "Mysql@2024", "hotel");
+$conn = new mysqli("localhost", "root", "Mysql@2025", "hotel");
 
 $order_count = $reservation_count = $user_count = $menu_count = 0;
 

@@ -1,7 +1,7 @@
 <?php
 // Establish Database Connection (Line 2)
-// NOTE: Change "Mysql@2024" to your actual password if this is not it.
-$conn = new mysqli("localhost", "root", "Mysql@2024", "hotel");
+// NOTE: Change "Mysql@2025" to your actual password if this is not it.
+$conn = new mysqli("localhost", "root", "Mysql@2025", "hotel");
 
 // Check connection
 if ($conn->connect_error) {
